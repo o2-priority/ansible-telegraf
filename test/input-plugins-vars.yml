@@ -144,21 +144,15 @@ telegraf_service_inputs:
     grok:
       patterns: ["%{COMBINED_LOG_FORMAT}"]
       measurement: "apache_access_log"
-      #custom_pattern_files: []
-      #custom_patterns: | 
-      #  CUSTOM_PATTERN_1_LOG_FORMAT
-      #  CUSTOM_PATTERN_2_LOG_FORMAT
-#  # A Webhooks Event collector
-#  - name: webhooks
-#    ## Address and port to host Webhook listener on
-#    service_address: ":1619"
-#    webhooks:
-#      - name: github
-#        path: "/github"
-#      - name: mandrill
-#        path: "/mandrill"
-#      - name: rollbar
-#        path: "/rollbar"
+
+  - name: tail
+    from_beginning: True
+    files: ["/var/log/apache/access.log"]
+    data_format: json
+    json_string_fields: ["@timestamp","@fields_status","@fields_request"]
+    json_name_key: "apache_access_log"
+    json_time_key: "@timestamp"
+    json_time_format: "2006-01-02T15:04:05+00:00"
 
 
 ###########################
