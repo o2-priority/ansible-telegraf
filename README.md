@@ -13,7 +13,7 @@ Ansible role to install and configure Telegraf.
     telegraf_version: "0.13.0-1"
     
   roles:
-    - wunzeco.telegraf
+    - o2-priority.telegraf
 ```
 
 > **Note:** 

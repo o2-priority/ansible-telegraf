@@ -23,8 +23,8 @@
         - kong-metrics-collector.py
 
   roles:
-    - wunzeco.docker
-    - wunzeco.influxdb
+    - o2-priority.docker
+    - o2-priority.influxdb
     - ansible-telegraf
 
   post_tasks:
