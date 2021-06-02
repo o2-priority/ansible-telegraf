@@ -28,12 +28,12 @@
 # gnutls_handshake() failed: A TLS packet with unexpected length was received.
 # Commenting this out for now. We need to upgrade ubuntu to fix it or install a specific version with dpkg.
 
- - name: Add telegraf apt repository definition to apt sources list
-   apt_repository:
-     repo: "{{ telegraf_apt_repo }}"
-     update_cache: yes
-     state: present
-   when: ansible_distribution_major_version >= 16
+- name: Add telegraf apt repository definition to apt sources list
+  apt_repository:
+    repo: "{{ telegraf_apt_repo }}"
+    update_cache: yes
+    state: present
+  when: ansible_distribution_major_version >= 16
 
 
 - name: Install telegraf
