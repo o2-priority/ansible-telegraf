@@ -17,13 +17,13 @@
 {% endif %}
 {% if input.parameters %}
   [inputs.httpjson.parameters]
-{% for k,v in input.parameters.iteritems() %}
+{% for k,v in input.parameters.items() %}
     {{ k }} = "{{ v }}"
 {% endfor %}
 {% endif %}
 {% if input.headers %}
   [inputs.httpjson.headers]
-{% for k,v in input.headers.iteritems() %}
+{% for k,v in input.headers.items() %}
     {{ k }} = "{{ v }}"
 {% endfor %}
 {% endif %}
