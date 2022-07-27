@@ -14,3 +14,5 @@
     name: "telegraf-{{ telegraf_version|default('*') }}"
     update_cache: yes
     state: present
+  async: 45
+  poll: 0  
