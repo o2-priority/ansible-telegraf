@@ -1,6 +1,6 @@
 # Statsd Server
 [[inputs.statsd]]
-{% for key,value in input.iteritems() %}
+{% for key,value in input.items() %}
 {% if key != 'name' %}
 {% if key == 'percentiles' %}
   percentiles = [ {{ value|join(', ') }} ]

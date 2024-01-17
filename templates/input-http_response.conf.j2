@@ -6,7 +6,7 @@
   follow_redirects = {{ input.follow_redirects|default(false)|bool|lower }}
 {% if input.headers|default(false) %}
   [inputs.http_response.headers]
-{% for k,v in input.headers.iteritems() %}
+{% for k,v in input.headers.items() %}
     {{ k }} = "{{ v }}"
 {% endfor %}
 {% endif %}

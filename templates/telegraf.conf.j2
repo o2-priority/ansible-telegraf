@@ -16,7 +16,7 @@
 
 # Global tags can be specified here in key="value" format.
 [global_tags]
-{% for key,value in telegraf_global_tags.iteritems() %}
+{% for key,value in telegraf_global_tags.items() %}
   {{ key }} = "{{ value }}"
 {% endfor %}
 
@@ -45,7 +45,7 @@
 
 {% for output in telegraf_outputs %}
 [[outputs.{{ output.name }}]]
-{% for key,value in output.iteritems() %}
+{% for key,value in output.items() %}
 {% if key != 'name' %}
 {% if value|string == 'True' or value|string == 'False' %}
   {{ key }} = {{ value|lower }}
@@ -71,7 +71,7 @@
 
 {% for input in telegraf_default_inputs %}
 [[inputs.{{ input.name }}]]
-{% for key,value in input.iteritems() %}
+{% for key,value in input.items() %}
 {% if key != 'name' %}
 {% if value|string == 'True' or value|string == 'False' %}
   {{ key }} = {{ value|lower }}
@@ -100,7 +100,7 @@
 
 {# non-special-needs input plugins #}
 [[inputs.{{ input.name }}]]
-{% for key,value in input.iteritems() %}
+{% for key,value in input.items() %}
 {% if key != 'name' %}
 {% if value|string == 'True' or value|string == 'False' %}
   {{ key }} = {{ value|lower }}
@@ -131,7 +131,7 @@
 {% include 'service-input-' + input.name + '.conf.j2' %}
 {% else %}
 [[inputs.{{ input.name }}]]
-{% for key,value in input.iteritems() %}
+{% for key,value in input.items() %}
 {% if key != 'name' %}
 {% if value|string == 'True' or value|string == 'False' %}
   {{ key }} = {{ value|lower }}
