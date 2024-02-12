@@ -35,7 +35,7 @@
 {# START: loop for inputs.snmp.host.table #}
 {% for host_table_opt in host_opt.tables %}
     [[inputs.snmp.host.table]]
-{% for k,v in host_table_opt.iteritems() %}
+{% for k,v in host_table_opt.items() %}
 {% if v|string == 'True' or v|string == 'False' %}
       {{ k }} = {{ v|lower }}
 {% elif v is number %}
@@ -56,7 +56,7 @@
 
 {% for get_opt in input.gets %}
   [[inputs.snmp.get]]
-{% for key,value in get_opt.iteritems() %}
+{% for key,value in get_opt.items() %}
 {% if value|string == 'True' or value|string == 'False' %}
     {{ key }} = {{ value|lower }}
 {% elif value is number %}
@@ -72,7 +72,7 @@
 
 {% for bulk_opt in input.bulks %}
   [[inputs.snmp.bulk]]
-{% for key,value in bulk_opt.iteritems() %}
+{% for key,value in bulk_opt.items() %}
 {% if value|string == 'True' or value|string == 'False' %}
     {{ key }} = {{ value|lower }}
 {% elif value is number %}
@@ -89,7 +89,7 @@
   # SNMP TABLEs
 {% for table_opt in input.tables %}
   [[inputs.snmp.table]]
-{% for key,value in table_opt.iteritems() %}
+{% for key,value in table_opt.items() %}
 {% if value|string == 'True' or value|string == 'False' %}
     {{ key }} = {{ value|lower }}
 {% elif value is number %}
